@@ -554,6 +554,55 @@ try {
 }
 
 
+# 21.	Startup Applications: List all startup applications.
+# Get-StartUpApplications.ps1
+# This script retrieves a list of applications that start up automatically when the system boots.
+
+Write-OutputToFile "`nRetrieving list of startup applications..."
+
+# Fetch startup items for the current user
+$CurrentUserStartUpItems = Get-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' | Select-Object -Property * -ExcludeProperty PSPath, PSParentPath, PSChildName, PSDrive, PSProvider
+
+# Fetch startup items for all users
+$AllUsersStartUpItems = Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run' | Select-Object -Property * -ExcludeProperty PSPath, PSParentPath, PSChildName, PSDrive, PSProvider
+
+# Combine the results
+$StartUpItems = $CurrentUserStartUpItems, $AllUsersStartUpItems
+
+# Output the results
+$StartUpItems | ForEach-Object {
+    $properties = $_.PSObject.Properties
+    foreach ($property in $properties) {
+        Write-OutputToFile "$($property.Name): $($property.Value)"
+    }
+}
+
+Write-OutputToFile "Startup applications retrieval completed."
+
+# retrieves a list of all scheduled tasks on the system that have run at least once.
+
+Write-OutputToFile "`nRetrieving list of scheduled tasks..."
+
+# Get all scheduled tasks
+$ScheduledTasks = Get-ScheduledTask | Where-Object {$_.State -ne "Disabled" -and $_.LastRunTime -ne $null -and $_.NextRunTime -ne $null}
+
+foreach ($task in $ScheduledTasks) {
+    Write-OutputToFile "Task Name: $($task.TaskName)"
+    Write-OutputToFile "Task Path: $($task.TaskPath)"
+    Write-OutputToFile "Next Run Time: $($task.NextRunTime)"
+    Write-OutputToFile "Last Run Time: $($task.LastRunTime)"
+    Write-OutputToFile "Last Run Result: $($task.LastTaskResult)"
+    Write-OutputToFile "Status: $($task.State)"
+    Write-OutputToFile "------------------------"
+}
+
+if ($ScheduledTasks.Count -eq 0) {
+    Write-OutputToFile "No scheduled tasks with run history found."
+} else {
+    Write-OutputToFile "Scheduled tasks retrieval completed."
+}
+
+
 # Function to write output to the text file
 function Write-OutputToFile ($Message) {
     Write-Output $Message | Out-File -FilePath $outputFile -Append -Encoding UTF8
