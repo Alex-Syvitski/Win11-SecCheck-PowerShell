@@ -1,5 +1,5 @@
 # Win11-SecCheck-PowerShell
-This script performs a comprehensive security analysis of your Windows system by running 20 crucial checks. It's designed to help system administrators and security professionals ensure their Windows environments are secured according to best practices and identify potential vulnerabilities.
+This script performs a comprehensive security analysis of your Windows system by running 22 crucial checks. It's designed to help system administrators and security professionals ensure their Windows environments are secured according to best practices and identify potential vulnerabilities.
 
 Features
 The script checks the following system parameters and configurations:
