@@ -23,6 +23,9 @@ The script checks the following system parameters and configurations:
 18.	Scheduled Tasks Analysis: Reviews scheduled tasks with high-level privileges.
 19.	Secure Boot Status: Verifies if Secure Boot is enabled.
 20.	Active Network Connections: Reviews all active network connections.
+21.	Startup Applications: List all startup applications.
+22.	Scheduled Tasks: List any scheduled tasks that have run at least once.
+
 
 Requirements
 •	Windows PowerShell 5.1 or higher
