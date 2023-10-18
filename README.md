@@ -18,10 +18,17 @@ Done:
 
 
 Current Todo:
+
 12.	Remote Desktop Status: Verifies if Remote Desktop is enabled and if so, ensures it’s configured securely (e.g., requiring Network Level Authentication).
+
 13.	Antivirus Software Status: In addition to Windows Defender, checks for the presence and status of any third-party antivirus software.
-14.	System Restore Point: Checks for the latest system restore point, ensuring that it's recent in case a quick system recovery is needed.
-15.	Security Services Status: Confirms that critical security services like Windows Security Center, Cryptographic Services, etc., are running.
-16.	Open Ports: Lists open network ports and associated services to identify potential vulnerabilities.
-17.	Windows Event Logs: Reviews critical system and security logs for any significant incidents or warnings.
+    
+15.	System Restore Point: Checks for the latest system restore point, ensuring that it's recent in case a quick system recovery is needed.
+    
+17.	Security Services Status: Confirms that critical security services like Windows Security Center, Cryptographic Services, etc., are running.
+    
+19.	Open Ports: Lists open network ports and associated services to identify potential vulnerabilities.
+    
+21.	Windows Event Logs: Reviews critical system and security logs for any significant incidents or warnings.
+    
 
