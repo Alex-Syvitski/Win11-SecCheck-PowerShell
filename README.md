@@ -24,3 +24,4 @@ Current Todo:
 15.	Security Services Status: Confirms that critical security services like Windows Security Center, Cryptographic Services, etc., are running.
 16.	Open Ports: Lists open network ports and associated services to identify potential vulnerabilities.
 17.	Windows Event Logs: Reviews critical system and security logs for any significant incidents or warnings.
+
