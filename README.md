@@ -29,5 +29,5 @@ Requirements
 •	Appropriate administrative privileges to execute system checks
 
 
-Please reference readme.
+Please reference readme PDFs for detailed usage instructions.
 
